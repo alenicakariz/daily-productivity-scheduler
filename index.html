@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Productivity Scheduler</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Daily Productivity Scheduler</h1>
+            <p class="header-subtitle">Maximize your day with smart task optimization. <br>Input your tasks and available time, 
+            and we'll find the best combination for maximum productivity.</p>
+        </div>
+
+        <!-- Available Time Input -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Available Time</h2>
+            </div>
+            <div class="input-group-horizontal">
+                <input 
+                    type="number" 
+                    id="availableTime" 
+                    step="0.5" 
+                    min="0" 
+                    value="0" 
+                    class="input-field"
+                    placeholder="Hours available"
+                />
+                <span class="input-label">hours</span>
+            </div>
+        </div>
+
+        <!-- Add Task Form -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Add New Task</h2>
+            </div>
+            <div class="form-grid">
+                <input 
+                    type="text" 
+                    id="taskName" 
+                    class="input-field input-name"
+                    placeholder="Task name"/>
+                <input 
+                    type="number" 
+                    id="taskDuration" 
+                    step="0.5" 
+                    min="0" 
+                    class="input-field"
+                    placeholder="Hours"
+                />
+                <input 
+                    type="number" 
+                    id="taskPriority" 
+                    min="1" 
+                    max="10" 
+                    class="input-field"
+                    placeholder="Priority (1-10)"
+                />
+            </div>
+            <button id="addTaskBtn" class="btn btn-primary btn-full">Add Task</button>
+            <div id="taskCountWarning" class="warning-message" style="display:none;">
+                Maximum 25 tasks allowed. Please remove some tasks before adding more.
+            </div>
+        </div>
+
+        <!-- Tasks List -->
+        <div class="card">
+            <h2>Your Tasks</h2>
+            <div id="tasksList" class="tasks-container">
+                <p class="empty-message">No tasks added yet. Add your task/s above.</p>
+            </div>
+        </div>
+
+        <!-- Optimize Button -->
+        <button id="optimizeBtn" class="btn btn-success btn-large">Optimize My Schedule</button>
+
+        <!-- Results -->
+        <div id="resultsContainer" class="card results-card" style="display:none;">
+            <div class="card-header">
+                <h2>Optimized Results</h2>
+            </div>
+            <div id="resultsContent"></div>
+        </div>
+    </div>
+    <script src="backend.js"></script>
+</body>
+</html>
